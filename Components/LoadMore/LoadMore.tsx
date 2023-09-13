@@ -16,7 +16,6 @@ const LoadMore = () => {
     new Promise((resolve) => setTimeout(resolve, ms));
 
   const loadMoreData = async () => {
-
     // secure api from ddos
     await delay(2000);
 
@@ -29,13 +28,13 @@ const LoadMore = () => {
     console.log(limit);
 
     console.log("data lenght" + data2.length);
-    
+
     setLimit(limit + 1);
   };
 
   useEffect(() => {
     if (inView) {
-      loadMoreData();
+      // loadMoreData();
     }
   }, [inView]);
 
