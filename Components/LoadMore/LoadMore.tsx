@@ -34,7 +34,7 @@ const LoadMore = () => {
 
   useEffect(() => {
     if (inView) {
-      // loadMoreData();
+      loadMoreData();
     }
   }, [inView]);
 
