@@ -15,11 +15,11 @@ const getHistoryData_ClientSide = async ({ limit, offset }: props) => {
     body: JSON.stringify({
       query: `
         query ExampleQuery($limit: Int, $offset: Int) {
-  histories(limit: $limit, offset: $offset) {
-    details
-    id
-  }
-}
+       histories(limit: $limit, offset: $offset) {
+            details
+           id
+        }
+              }
 
       `,
       variables: {

@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import History, { history } from "../Hisotry/History";
 import { Spinner } from "react-bootstrap";
 import getHistoryData_ClientSide from "@/utils/getHistoryData_ClientSide";
+import { histories } from "@/utils/getHistoryData_ServerSide";
 const LoadMore = () => {
   const [data2, setData] = useState<history[]>([]);
   const [limit, setLimit] = useState(5);
@@ -14,20 +15,27 @@ const LoadMore = () => {
   const delay = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
 
-  const loadMoredata = async () => {
+  const loadMoreData = async () => {
+
     // secure api from ddos
     await delay(2000);
+
     const reponse = await getHistoryData_ClientSide({ limit, offset: 4 });
-    const { histories } = reponse.data;
+
+    const { histories }: histories = reponse.data;
+
     setData(histories);
+
     console.log(limit);
+
     console.log("data lenght" + data2.length);
+    
     setLimit(limit + 1);
   };
 
   useEffect(() => {
     if (inView) {
-      loadMoredata();
+      loadMoreData();
     }
   }, [inView]);
 

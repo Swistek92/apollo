@@ -3,15 +3,10 @@ import LoadMore from "@/Components/LoadMore/LoadMore";
 import { getClient } from "@/utils/getClient";
 import getHistoryData from "@/utils/getHistoryData_ServerSide";
 import { gql } from "@apollo/client";
-
-export const query = gql`
-  query ExampleQuery($limit: Int, $offset: Int) {
-    histories(limit: $limit, offset: $offset) {
-      details
-      id
-    }
-  }
-`;
+import Image from "next/image";
+import img from "@/public/img.jpeg";
+import Drone from "@/Components/Drone/Drone";
+import Navigation from "@/Components/Navigation/Navigation";
 
 // export const revalidate = 5;
 
@@ -20,17 +15,20 @@ export default async function Home() {
 
   return (
     <div className='container'>
-      <h1>hello</h1>
       <div>
-        {histories &&
-          histories.map((history) => (
-            <History
-              key={history.id}
-              id={history.id}
-              details={history.details}
-            />
-          ))}
-        <LoadMore />
+        <Navigation />
+        <Drone />
+        <div>
+          {histories &&
+            histories.map((history) => (
+              <History
+                key={history.id}
+                id={history.id}
+                details={history.details}
+              />
+            ))}
+          {/* <LoadMore /> */}
+        </div>
       </div>
     </div>
   );
