@@ -1,0 +1,17 @@
+@font-face {
+  font-family: console;
+  src: url("../public/font.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "console";
+  color: white;
+  text-align: center;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+}
