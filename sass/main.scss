@@ -1,2 +1,16 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "./global";
+
+.container {
+  padding-right: 0;
+  padding-left: 0;
+  width: 100vw;
+}
+
+h1 {
+  background-color: red;
+}
+
+.history {
+  border: 2px solid red;
+}

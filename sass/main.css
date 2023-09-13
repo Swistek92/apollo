@@ -11986,4 +11986,18 @@ textarea.form-control-lg {
 
 body {
   background-color: rgb(0, 0, 0);
+}
+
+.container {
+  padding-right: 0;
+  padding-left: 0;
+  width: 100vw;
+}
+
+h1, .h1 {
+  background-color: red;
+}
+
+.history {
+  border: 2px solid red;
 }/*# sourceMappingURL=main.css.map */

@@ -1,4 +1,4 @@
-// lib/client.js
+import config from "@/config/default";
 import { HttpLink } from "@apollo/client";
 import {
   NextSSRInMemoryCache,
@@ -10,7 +10,7 @@ export const { getClient } = registerApolloClient(() => {
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),
     link: new HttpLink({
-      uri: "https://spacex-production.up.railway.app/",
+      uri: config.API_LINK,
     }),
   });
 });

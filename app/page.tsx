@@ -1,37 +1,36 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import History from "@/Components/Hisotry/History";
+import LoadMore from "@/Components/LoadMore/LoadMore";
 import { getClient } from "@/utils/getClient";
+import getHistoryData from "@/utils/getHistoryData_ServerSide";
 import { gql } from "@apollo/client";
 
-const query = gql`
-  query Histories {
-    histories {
+export const query = gql`
+  query ExampleQuery($limit: Int, $offset: Int) {
+    histories(limit: $limit, offset: $offset) {
       details
+      id
     }
   }
 `;
 
-type histories = {
-  histories: [
-    {
-      details: string;
-    }
-  ];
-};
-
 // export const revalidate = 5;
 
 export default async function Home() {
-  const data = await getClient().query({ query });
-  const { histories }: histories = data.data;
+  const histories = await getHistoryData({ limit: 4, offset: 0 });
 
   return (
-    <div>
+    <div className='container'>
       <h1>hello</h1>
       <div>
-        {histories.map((e) => {
-          return <p> {e.details}</p>;
-        })}
+        {histories &&
+          histories.map((history) => (
+            <History
+              key={history.id}
+              id={history.id}
+              details={history.details}
+            />
+          ))}
+        <LoadMore />
       </div>
     </div>
   );
