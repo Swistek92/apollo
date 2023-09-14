@@ -7,10 +7,10 @@ const Navigation = () => {
   return (
     <div className='nav_container'>
       <div className='icons'>
-        <div>
+        <div className='icons__left'>
           <LuMenuSquare className='icon' />
         </div>
-        <div>
+        <div className='icons__right'>
           <LuSearch className='icon' />
           <LuBellDot className='icon' />
           <FcGlobe className='icon' />

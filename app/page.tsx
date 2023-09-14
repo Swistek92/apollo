@@ -14,11 +14,11 @@ export default async function Home() {
   const histories = await getHistoryData({ limit: 4, offset: 0 });
 
   return (
-    <div className='container'>
+    <div className='main_container'>
       <div>
         <Navigation />
         <Drone />
-        <div>
+        <div className='new_container'>
           {histories &&
             histories.map((history) => (
               <History

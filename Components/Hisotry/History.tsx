@@ -7,9 +7,9 @@ export type history = {
 
 const History = ({ id, details }: history) => {
   return (
-    <div className={`history ${Math.random() < 0.5 ? "black" : "black"}`}>
-      <h5>{id}</h5>
-      <p>{details}</p>
+    <div className={`history `}>
+      <h5 className='history__header'>{id}</h5>
+      <p className='history__text'>{details}</p>
     </div>
   );
 };

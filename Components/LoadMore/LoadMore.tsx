@@ -44,7 +44,6 @@ const LoadMore = () => {
         data2.map((e) => {
           return (
             <div key={e.id}>
-              <p>{limit}</p>
               <History id={e.id} details={e.details} />
             </div>
           );
