@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/sass/main.css";
+import Footer from "@/Components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Appolo",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

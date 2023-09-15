@@ -11992,9 +11992,19 @@ textarea.form-control-lg {
 body {
   background-color: #777;
   overflow-x: hidden; /* Hide horizontal scrollbar */
+  padding-bottom: 10vh;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 10vh;
+  width: 100vw;
+  background-color: #333;
 }
 
 .drone {
+  padding-top: 80px;
   position: relative;
   max-width: 100vw;
 }
@@ -12033,7 +12043,9 @@ body {
   padding: 0;
   background-color: #333;
   padding-top: 10px;
-  max-width: 100vw;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
 }
 
 .naviation {
@@ -12117,4 +12129,11 @@ li {
 .history__textBox {
   background-color: black;
   width: 50%;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }/*# sourceMappingURL=main.css.map */

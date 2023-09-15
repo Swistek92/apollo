@@ -8,6 +8,7 @@ import Navigation from "@/Components/Navigation/Navigation";
 import { getData_ServerSide } from "@/utils/getHistoryData_ServerSide";
 import LoadMoreHistories from "@/Components/LoadMore/LoadMoreHistories";
 import LoadMoreLunches from "@/Components/LoadMore/LoadMoreLunches";
+import Footer from "@/Components/Footer/Footer";
 // export const revalidate = 5;
 
 export default async function Home() {
@@ -31,6 +32,7 @@ export default async function Home() {
           <LoadMoreHistories />
         </div>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 }

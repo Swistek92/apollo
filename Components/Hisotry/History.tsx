@@ -18,7 +18,9 @@ const History = ({ id, details }: history) => {
       </div>
       <div className='history__textBox'>
         {/* <h5 className='history__header'>{id}</h5> */}
-        <p className='history__text'>{details}</p>
+        <p className='history__text'>
+          {details.length < 25 ? details : details.substring(0, 44) + "..."}
+        </p>
       </div>
     </div>
   );

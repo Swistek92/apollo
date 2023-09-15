@@ -15,9 +15,21 @@
 .main_container {
   padding: 0 !important;
   width: 100vw;
+  // margin-bottom: 100px;
 }
 
 body {
   background-color: $color-grey;
   overflow-x: hidden; /* Hide horizontal scrollbar */
+  // height: 90vh;
+  padding-bottom: 10vh;
+}
+
+.footer {
+  // display: none;
+  position: fixed;
+  bottom: 0;
+  height: 10vh;
+  width: 100vw;
+  background-color: $color-grey-3;
 }
