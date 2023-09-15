@@ -32,7 +32,6 @@ export default async function Home() {
           <LoadMoreHistories />
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 }
