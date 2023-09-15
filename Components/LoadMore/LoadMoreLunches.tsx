@@ -4,11 +4,13 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import History, { history } from "../Hisotry/History";
 import { Spinner } from "react-bootstrap";
-import getHistoryData_ClientSide from "@/utils/getHistoryData_ClientSide";
-import { histories } from "@/utils/getHistoryData_ServerSide";
-const LoadMore = () => {
-  const [data2, setData] = useState<history[]>([]);
-  const [limit, setLimit] = useState(5);
+
+import { getData_ClientSide } from "@/utils/getHistoryData_ClientSide";
+import Launch, { Launch_Type } from "../Launch/Launch";
+
+const LoadMoreLunches = () => {
+  const [data2, setData] = useState<Launch_Type[]>([]);
+  const [limit, setLimit] = useState(30);
 
   const { ref, inView } = useInView();
 
@@ -16,18 +18,10 @@ const LoadMore = () => {
     new Promise((resolve) => setTimeout(resolve, ms));
 
   const loadMoreData = async () => {
-    // secure api from ddos
-    await delay(2000);
-
-    const reponse = await getHistoryData_ClientSide({ limit, offset: 4 });
-
-    const { histories }: histories = reponse.data;
-
-    setData(histories);
-
-    console.log(limit);
-
-    console.log("data lenght" + data2.length);
+    // DELAY@@@@
+    // await delay(100);
+    const launches = await getData_ClientSide.launches({ limit, offset: 0 });
+    setData(launches);
 
     setLimit(limit + 1);
   };
@@ -35,6 +29,7 @@ const LoadMore = () => {
   useEffect(() => {
     if (inView) {
       loadMoreData();
+      console.log("load");
     }
   }, [inView]);
 
@@ -43,9 +38,11 @@ const LoadMore = () => {
       {data2 &&
         data2.map((e) => {
           return (
-            <div key={e.id}>
-              <History id={e.id} details={e.details} />
-            </div>
+            <Launch
+              key={e.mission_name}
+              mission_name={e.mission_name}
+              links={e.links}
+            />
           );
         })}
       <Spinner ref={ref} />
@@ -53,4 +50,4 @@ const LoadMore = () => {
   );
 };
 
-export default LoadMore;
+export default LoadMoreLunches;

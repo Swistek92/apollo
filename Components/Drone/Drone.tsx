@@ -10,7 +10,7 @@ const Drone = () => {
       <div className='subtitle'>
         <span className='text'>7.7.7777.</span>
         <br />
-        <span className='text'>A month asdasdaswith DJI Mini 7</span>
+        <span className='text'> DJI Mini 7</span>
       </div>
       <div className='arrow'>
         <FaLocationArrow />

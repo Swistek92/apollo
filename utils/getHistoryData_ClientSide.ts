@@ -1,4 +1,8 @@
 "use client";
+import {
+  Histories_Type,
+  Launches_Tpye,
+} from "@/utils/getHistoryData_ServerSide";
 import config from "@/config/default";
 
 type props = {
@@ -6,14 +10,15 @@ type props = {
   offset: number;
 };
 
-const getHistoryData_ClientSide = async ({ limit, offset }: props) => {
-  const reponse = await fetch(config.API_LINK, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: `
+export const getData_ClientSide = {
+  history: async ({ limit, offset }: props) => {
+    const reponse = await fetch(config.API_LINK, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: `
         query ExampleQuery($limit: Int, $offset: Int) {
        histories(limit: $limit, offset: $offset) {
             details
@@ -22,20 +27,48 @@ const getHistoryData_ClientSide = async ({ limit, offset }: props) => {
               }
 
       `,
-      variables: {
-        limit,
-        offset,
+        variables: {
+          limit,
+          offset,
+        },
+      }),
+    });
+    const data = await reponse.json();
+
+    const { histories }: Histories_Type = data.data;
+
+    return histories;
+  },
+
+  launches: async ({ limit, offset }: props) => {
+    const reponse = await fetch(config.API_LINK, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    }),
-  });
+      body: JSON.stringify({
+        query: `
+       query Launches($limit: Int, $offset: Int) {
+        launches(limit: $limit, offset: $offset) {
+          mission_name
+          links {
+            flickr_images
+          }
+        }
+      }
 
-  return await reponse.json();
+      `,
+        variables: {
+          limit,
+          offset,
+        },
+      }),
+    });
+    const data = await reponse.json();
 
-  // .then((res) => res.json())
-  // .then((result) => {
-  //   setData(result.data.histories);
-  //   setLimit(limit + 1);
-  // });
+    const { launches }: Launches_Tpye = data.data;
+    console.log(launches);
+
+    return launches;
+  },
 };
-
-export default getHistoryData_ClientSide;

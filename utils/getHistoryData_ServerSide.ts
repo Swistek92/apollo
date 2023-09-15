@@ -5,7 +5,7 @@ type props = {
   offset: number;
 };
 
-export type histories = {
+export type Histories_Type = {
   histories: [
     {
       details: string;
@@ -14,26 +14,58 @@ export type histories = {
   ];
 };
 
-const query = gql`
-  query ExampleQuery($limit: Int, $offset: Int) {
-    histories(limit: $limit, offset: $offset) {
-      details
-      id
+export type Launches_Tpye = {
+  launches: [
+    {
+      mission_name: string;
+      links: {
+        flickr_images: string[];
+      };
     }
-  }
-`;
-
-const getHistoryData_ServerSide = async ({ limit, offset }: props) => {
-  const respose = await getClient().query({
-    query,
-    variables: {
-      limit,
-      offset,
-    },
-  });
-  const { histories }: histories = respose.data;
-
-  return histories;
+  ];
 };
 
-export default getHistoryData_ServerSide;
+export const getData_ServerSide = {
+  history: async ({ limit, offset }: props) => {
+    const query = gql`
+      query ExampleQuery($limit: Int, $offset: Int) {
+        histories(limit: $limit, offset: $offset) {
+          details
+          id
+        }
+      }
+    `;
+    const respose = await getClient().query({
+      query,
+      variables: {
+        limit,
+        offset,
+      },
+    });
+    const { histories }: Histories_Type = respose.data;
+
+    return histories;
+  },
+  launches: async ({ limit, offset }: props) => {
+    const query = gql`
+      query Launches($limit: Int, $offset: Int) {
+        launches(limit: $limit, offset: $offset) {
+          mission_name
+          links {
+            flickr_images
+          }
+        }
+      }
+    `;
+    const respose = await getClient().query({
+      query,
+      variables: {
+        limit,
+        offset,
+      },
+    });
+    const { launches }: Launches_Tpye = respose.data;
+
+    return launches;
+  },
+};
