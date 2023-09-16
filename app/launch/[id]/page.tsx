@@ -1,6 +1,6 @@
 import { getData_ServerSide } from "@/utils/getData_ServerSide";
 import Image from "next/image";
-
+import cosmo from "@/public/cosmo.jpg";
 type props = {
   params: {
     id: string;
@@ -26,10 +26,18 @@ export default async function Page({ params }: props) {
   return (
     <div className='launchDetails__container'>
       <div className='launchDetails__container__imagebox'>
-        {flickr_images[0] && (
+        {flickr_images[0] ? (
           <Image
-            className='launchDetails__container__imagebox_img'
+            className='launchDetails__container__imagebox__img'
             src={flickr_images[0]}
+            alt='img'
+            width={200}
+            height={200}
+          />
+        ) : (
+          <Image
+            className='launchDetails__container__imagebox__img'
+            src={cosmo}
             alt='img'
             width={200}
             height={200}
@@ -37,19 +45,84 @@ export default async function Page({ params }: props) {
         )}
       </div>
       <div>
-        <p> details{details}</p>
-        <p> launch date utc {launch_date_utc}</p>
-        <p> success {launch_success ? "true" : "false"}</p>
-        {/* <p> mission name{mission_name}</p>
-        <p> details {details}</p>
-        <p> rocket name {rocket_name}</p>
-        <p> rocket type {rocket_type}</p>
-        <p> rocket active: {active}</p>
-        <p> name: {name}</p>
-        <p> wiki; {wikipedia}</p>
-        <p> company:{company}</p>
-        <p> county:{country}</p>
-        <p>kg{kg}</p> */}
+        <h3>rocket name {rocket_name}</h3>
+        {details && <p> {details}</p>}
+
+        <table className='table table-hover table-active'>
+          <tbody>
+            {launch_date_utc && (
+              <tr>
+                <th scope='row'>Launch date</th>
+                <td>{new Date(launch_date_utc).toLocaleString()}</td>
+              </tr>
+            )}
+            {launch_success && (
+              <tr>
+                <th scope='row'>Launch Succes</th>
+                <td>{`${launch_success.toString()}`}</td>
+              </tr>
+            )}
+            {mission_name && (
+              <tr>
+                <th scope='row'>mission_name</th>
+                <td>{mission_name}</td>
+              </tr>
+            )}
+            {rocket_name && (
+              <tr>
+                <th scope='row'>rocket_name</th>
+                <td>{rocket_name}</td>
+              </tr>
+            )}
+            {rocket_type && (
+              <tr>
+                <th scope='row'>rocket_name</th>
+                <td>{rocket_type}</td>
+              </tr>
+            )}{" "}
+            {active && (
+              <tr>
+                <th scope='row'>rocket active</th>
+                <td>{`${active.toString()}`}</td>
+              </tr>
+            )}
+            {name && (
+              <tr>
+                <th scope='row'>name</th>
+                <td>{name}</td>
+              </tr>
+            )}{" "}
+            {wikipedia && (
+              <tr>
+                <th scope='row'>wiki</th>
+                <td>
+                  <a href={wikipedia} target='blank_'>
+                    {" "}
+                    wiki about {name} Click!
+                  </a>
+                </td>
+              </tr>
+            )}
+            {company && (
+              <tr>
+                <th scope='row'>company</th>
+                <td>{company}</td>
+              </tr>
+            )}{" "}
+            {country && (
+              <tr>
+                <th scope='row'>country</th>
+                <td>{country}</td>
+              </tr>
+            )}{" "}
+            {kg && (
+              <tr>
+                <th scope='row'>Masss</th>
+                <td>{kg}</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

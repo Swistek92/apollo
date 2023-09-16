@@ -2,15 +2,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: auto;
-  color: $color-black;
+  // height: 100;
+  background-color: $color-black;
   padding-top: 120px;
 }
 .launch {
-  margin: 20px;
+  margin: 5px;
   // align-items: center;
   // max-width: 50vw;
-  width: 40vw;
+  width: 45vw;
   background-color: $color-grey-2;
   border: 4px solid $color-grey-2;
   overflow: hidden;
