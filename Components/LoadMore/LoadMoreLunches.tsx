@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import History, { history } from "../Hisotry/History";
 import { Spinner } from "react-bootstrap";
 
-import { getData_ClientSide } from "@/utils/getHistoryData_ClientSide";
+import { getData_ClientSide } from "@/utils/getData_ClientSide";
 import Launch, { Launch_Type } from "../Launch/Launch";
 
 const LoadMoreLunches = () => {
