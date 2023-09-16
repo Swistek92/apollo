@@ -12188,6 +12188,7 @@ li.explore {
   flex-wrap: wrap;
   justify-content: center;
   height: auto;
+  color: #000;
 }
 
 .launch {
@@ -12201,7 +12202,7 @@ li.explore {
 }
 .launch__imageBox {
   width: 100%;
-  height: 80%;
+  height: 70%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -12209,7 +12210,14 @@ li.explore {
   width: 100%;
   height: 80%;
 }
-.launch__imageBox__image:hover {
-  transform: scale(1.1);
-  overflow: hidden;
+.launch__text p {
+  color: #000;
+}
+.launch__text {
+  color: #000;
+  height: 100%;
+  font-size: 10px;
+}
+.launch__text__date {
+  text-align: left;
 }/*# sourceMappingURL=main.css.map */

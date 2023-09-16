@@ -43,6 +43,8 @@ const LoadMoreLunches = () => {
               mission_name={e.mission_name}
               links={e.links}
               id={e.id}
+              launch_date_utc={e.launch_date_utc}
+              details={e.details}
             />
           );
         })}

@@ -39,6 +39,8 @@ export const getData_ServerSide = {
             flickr_images
           }
           id
+          launch_date_utc
+          details
         }
       }
     `;

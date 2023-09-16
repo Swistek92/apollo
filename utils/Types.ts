@@ -15,6 +15,8 @@ export type Launches_Tpye = {
         flickr_images: string[] | [];
       };
       id: string;
+      launch_date_utc: string;
+      details: string;
     }
   ];
 };

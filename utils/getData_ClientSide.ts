@@ -46,15 +46,17 @@ export const getData_ClientSide = {
       },
       body: JSON.stringify({
         query: `
-       query Launches($limit: Int, $offset: Int) {
+     query Launches($limit: Int, $offset: Int) {
         launches(limit: $limit, offset: $offset) {
           mission_name
           links {
             flickr_images
           }
+          id
+          launch_date_utc
+          details
         }
       }
-
       `,
         variables: {
           limit,
