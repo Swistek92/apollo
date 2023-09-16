@@ -1,9 +1,7 @@
 "use client";
-import {
-  Histories_Type,
-  Launches_Tpye,
-} from "@/utils/getHistoryData_ServerSide";
+
 import config from "@/config/default";
+import { Histories_Type, Launches_Tpye } from "./Types";
 
 type props = {
   limit: number;

@@ -2,8 +2,9 @@ import React from "react";
 import { FcGlobe } from "react-icons/fc";
 
 import { LuBellDot, LuSearch, LuMenuSquare } from "react-icons/lu";
+import NavigationFeed from "../Navigation/NavigationFeed";
 
-const Navigation = () => {
+const FeedHeader = () => {
   return (
     <div className='nav_container'>
       <div className='icons'>
@@ -17,14 +18,9 @@ const Navigation = () => {
         </div>
       </div>
 
-      <ul className='naviation'>
-        <li>Tech</li>
-        <li>Science</li>
-        <li>Education</li>
-        <li>Business</li>
-      </ul>
+      <NavigationFeed />
     </div>
   );
 };
 
-export default Navigation;
+export default FeedHeader;

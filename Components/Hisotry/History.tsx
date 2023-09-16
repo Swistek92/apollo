@@ -1,5 +1,5 @@
 import React from "react";
-import { Histories_Type } from "@/utils/getHistoryData_ServerSide";
+import { Histories_Type } from "@/utils/Types";
 import Image from "next/image";
 import HereIm from "@/public/moon.jpeg";
 export type history = Histories_Type["histories"][0];

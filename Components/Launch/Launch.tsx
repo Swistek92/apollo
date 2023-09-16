@@ -1,27 +1,24 @@
 import React from "react";
-import { Launches_Tpye } from "@/utils/getHistoryData_ServerSide";
+import { Launches_Tpye } from "@/utils/Types";
 import Image from "next/image";
-import { type } from "os";
+import orzel7 from "@/public/orzel7.jpg";
 export type Launch_Type = Launches_Tpye["launches"][0];
 
 const Launch = ({ mission_name, links }: Launch_Type) => {
-  console.log(links);
-  console.log(links.flickr_images.length > 0);
-  if (links.flickr_images.length === 0) {
-    return;
-  }
   return (
     <div className={`launch `}>
-      <h1>lalalal</h1>
-      {mission_name}
-      && (
-      <Image
-        alt='sad'
-        width={1000}
-        height={1000}
-        src={links.flickr_images[0]}
-      />
-      )
+      <div className='launch__imageBox'>
+        <Image
+          className='launch__imageBox__image'
+          alt='sad'
+          width={500}
+          height={500}
+          src={links.flickr_images[0] ? links.flickr_images[0] : orzel7}
+        />
+      </div>
+      <div>
+        <h3>{mission_name}</h3>
+      </div>
     </div>
   );
 };

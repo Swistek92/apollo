@@ -1,32 +1,16 @@
 import { gql } from "@apollo/client";
 import { getClient } from "./getClient";
+import { Histories_Type, Launches_Tpye } from "./Types";
 type props = {
   limit: number;
   offset: number;
 };
 
-export type Histories_Type = {
-  histories: [
-    {
-      details: string;
-      id: string;
-    }
-  ];
-};
-
-export type Launches_Tpye = {
-  launches: [
-    {
-      mission_name: string;
-      links: {
-        flickr_images: string[];
-      };
-    }
-  ];
-};
-
 export const getData_ServerSide = {
-  history: async ({ limit, offset }: props) => {
+  history: () => {},
+  launch: () => {},
+
+  histories: async ({ limit, offset }: props) => {
     const query = gql`
       query ExampleQuery($limit: Int, $offset: Int) {
         histories(limit: $limit, offset: $offset) {
