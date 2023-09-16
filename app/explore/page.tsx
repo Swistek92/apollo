@@ -14,7 +14,7 @@ const page = async () => {
       <NavigationExplore />
       <div className='container__launch'>
         {launches.map((e) => (
-          <Launch mission_name={e.mission_name} links={e.links} />
+          <Launch mission_name={e.mission_name} links={e.links} id={e.id} />
           // <div>
           //   <p>{e.mission_name}</p>
           //   <ul>

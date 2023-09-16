@@ -38,6 +38,7 @@ export const getData_ServerSide = {
           links {
             flickr_images
           }
+          id
         }
       }
     `;

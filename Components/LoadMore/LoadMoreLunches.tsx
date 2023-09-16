@@ -42,6 +42,7 @@ const LoadMoreLunches = () => {
               key={e.mission_name}
               mission_name={e.mission_name}
               links={e.links}
+              id={e.id}
             />
           );
         })}
