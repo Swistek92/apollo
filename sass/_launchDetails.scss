@@ -1,0 +1,15 @@
+.launchDetails__container {
+  max-height: 80vh;
+  font-size: 5px;
+  background-color: blue;
+
+  &__imagebox {
+    max-width: 80vw;
+    height: 10vh;
+
+    &__img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

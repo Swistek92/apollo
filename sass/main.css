@@ -11982,7 +11982,6 @@ textarea.form-control-lg {
   font-family: "console";
   color: #fff;
   text-align: center;
-  transition: 0.5s ease-in-out;
 }
 
 .main_container {
@@ -12180,7 +12179,16 @@ li.explore {
 
 .explore {
   background-color: #000;
-  padding-top: 30px;
+  max-height: 50vh;
+}
+.explore__header {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  padding-top: 10px;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
 }
 
 .container__launch {
@@ -12189,6 +12197,7 @@ li.explore {
   justify-content: center;
   height: auto;
   color: #000;
+  padding-top: 120px;
 }
 
 .launch {
@@ -12214,10 +12223,25 @@ li.explore {
   color: #000;
 }
 .launch__text {
+  margin-top: -50px;
   color: #000;
   height: 100%;
   font-size: 10px;
 }
 .launch__text__date {
   text-align: left;
+}
+
+.launchDetails__container {
+  max-height: 80vh;
+  font-size: 5px;
+  background-color: blue;
+}
+.launchDetails__container__imagebox {
+  max-width: 80vw;
+  height: 10vh;
+}
+.launchDetails__container__imagebox__img {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=main.css.map */

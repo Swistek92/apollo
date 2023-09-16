@@ -4,6 +4,7 @@
   justify-content: center;
   height: auto;
   color: $color-black;
+  padding-top: 120px;
 }
 .launch {
   margin: 20px;
@@ -37,6 +38,7 @@
   }
 
   &__text {
+    margin-top: -50px;
     // background-color: red;
     color: $color-black;
     height: 100%;

@@ -10,8 +10,10 @@ const page = async () => {
 
   return (
     <div className='explore'>
-      <Search />
-      <NavigationExplore />
+      <div className='explore__header'>
+        <Search />
+        <NavigationExplore />
+      </div>
       <div className='container__launch'>
         {launches.map((e) => (
           <Launch
@@ -21,14 +23,6 @@ const page = async () => {
             launch_date_utc={e.launch_date_utc}
             details={e.details}
           />
-          // <div>
-          //   <p>{e.mission_name}</p>
-          //   <ul>
-          //     {e.links.flickr_images.map((e) => (
-          //       <p>{e}</p>
-          //     ))}
-          //   </ul>
-          // </div>
         ))}
       </div>
     </div>

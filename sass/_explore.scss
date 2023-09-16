@@ -1,4 +1,13 @@
 .explore {
   background-color: $color-black;
-  padding-top: 30px;
+  max-height: 50vh;
+  &__header {
+    margin: 0;
+    padding: 0;
+    background-color: $color-black;
+    padding-top: 10px;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+  }
 }

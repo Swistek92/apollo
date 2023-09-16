@@ -20,3 +20,30 @@ export type Launches_Tpye = {
     }
   ];
 };
+
+export type Lunch_Type = {
+  launch: {
+    details: string | null;
+    launch_date_utc: string;
+    launch_success: Boolean | null;
+    links: {
+      flickr_images: string[] | [];
+    };
+    mission_name: string;
+    rocket: {
+      rocket_name: string;
+      rocket_type: string;
+      rocket: {
+        active: boolean;
+        name: string;
+        wikipedia: string;
+        country: string;
+        company: string;
+        mass: {
+          kg: number;
+        };
+      };
+    };
+    static_fire_date_utc: string;
+  };
+};
