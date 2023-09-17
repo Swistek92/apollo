@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import History, { history } from "../Hisotry/History";
 import { Spinner } from "react-bootstrap";
-// import getData_ClientSide from "@/utils/getHistoryData_ClientSide";
 import { getData_ClientSide } from "@/utils/getData_ClientSide";
 const LoadMoreHistories = () => {
   const [data2, setData] = useState<history[]>([]);
@@ -17,10 +16,10 @@ const LoadMoreHistories = () => {
 
   const loadMoreData = async () => {
     // DELAY@@@@
-    await delay(100);
-    const histories = await getData_ClientSide.history({ limit, offset: 4 });
+    // await delay(100);
+    const histories = await getData_ClientSide.histories({ limit, offset: 4 });
     setData(histories);
-    setLimit(limit + 1);
+    setLimit(limit + 2);
   };
 
   useEffect(() => {

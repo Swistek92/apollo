@@ -28,11 +28,11 @@ export default async function Page({ params }: props) {
   const { active, name, wikipedia, company, country, mass } = rocket2;
   const { kg } = mass;
   return (
-    <div className='launchDetails'>
-      <div className='launchDetails__imagebox'>
+    <div className='details'>
+      <div className='details__imagebox'>
         {flickr_images[0] ? (
           <Image
-            className='launchDetails__imagebox__img'
+            className='details__imagebox__img'
             src={flickr_images[0]}
             alt='img'
             width={200}
@@ -40,7 +40,7 @@ export default async function Page({ params }: props) {
           />
         ) : (
           <Image
-            className='launchDetails__imagebox__img'
+            className='details__imagebox__img'
             src={cosmo}
             alt='img'
             width={200}
@@ -48,7 +48,7 @@ export default async function Page({ params }: props) {
           />
         )}
       </div>
-      <div className='launchDetails__data'>
+      <div className='details__data'>
         <h3>rocket name {rocket_name}</h3>
         {details && <p> {details}</p>}
 

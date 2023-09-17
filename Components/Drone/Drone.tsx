@@ -6,7 +6,7 @@ import { FaLocationArrow } from "react-icons/fa";
 const Drone = () => {
   return (
     <div className='drone'>
-      <Image className='image' alt='img' width={1000} height={1000} src={img} />
+      <Image className='image' alt='img' width={400} height={400} src={img} />
       <div className='subtitle'>
         <span className='text'>7.7.7777.</span>
         <br />

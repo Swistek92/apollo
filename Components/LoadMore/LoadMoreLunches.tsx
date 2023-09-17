@@ -23,7 +23,7 @@ const LoadMoreLunches = () => {
     const launches = await getData_ClientSide.launches({ limit, offset: 4 });
     setData(launches);
 
-    setLimit(limit + 2);
+    setLimit(limit + 4);
   };
 
   useEffect(() => {

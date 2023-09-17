@@ -1,3 +1,16 @@
+export type Hisotry_Type = {
+  history: {
+    details: string | null;
+    event_date_utc: Date | null;
+    links: {
+      article: string | null;
+      reddit: string | null;
+      wikipedia: string | null;
+    };
+    title: string | null;
+  };
+};
+
 export type Histories_Type = {
   histories: [
     {

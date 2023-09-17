@@ -12251,20 +12251,21 @@ li.explore {
   color: black;
 }
 
-.launchDetails {
+.details {
   max-height: 80vh;
   font-size: 15px;
 }
-.launchDetails__imagebox {
+.details__imagebox {
   max-width: 100vw;
   height: auto;
   width: 100vw;
   margin: auto;
 }
-.launchDetails__imagebox__img {
+.details__imagebox__img {
+  max-width: 100vw;
   width: 100%;
   height: 100%;
 }
-.launchDetails__data {
+.details__data {
   padding-bottom: 100px;
 }/*# sourceMappingURL=main.css.map */

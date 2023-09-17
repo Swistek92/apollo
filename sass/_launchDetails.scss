@@ -1,4 +1,4 @@
-.launchDetails {
+.details {
   max-height: 80vh;
   font-size: 15px;
   // background-color: blue;
@@ -9,6 +9,7 @@
     width: 100vw;
     margin: auto;
     &__img {
+      max-width: 100vw;
       width: 100%;
       height: 100%;
     }

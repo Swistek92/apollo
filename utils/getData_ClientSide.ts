@@ -9,7 +9,7 @@ type props = {
 };
 
 export const getData_ClientSide = {
-  history: async ({ limit, offset }: props) => {
+  histories: async ({ limit, offset }: props) => {
     const reponse = await fetch(config.API_LINK, {
       method: "POST",
       headers: {

@@ -1,13 +1,22 @@
 import { gql } from "@apollo/client";
 import { getClient } from "./getClient";
-import { Histories_Type, Launches_Tpye, Lunch_Type } from "./Types";
-type props = {
+import {
+  Hisotry_Type,
+  Histories_Type,
+  Launches_Tpye,
+  Lunch_Type,
+} from "./Types";
+type propsForPagination = {
   limit: number;
   offset: number;
 };
 
+type propsForSingle = {
+  id: string;
+};
+
 export const getData_ServerSide = {
-  launch: async ({ id }: { id: string }) => {
+  launch: async ({ id }: propsForSingle) => {
     const query = gql`
       query Launches($launchId: ID!) {
         launch(id: $launchId) {
@@ -48,7 +57,33 @@ export const getData_ServerSide = {
     return launch;
   },
 
-  history: async ({ limit, offset }: props) => {
+  history: async ({ id }: propsForSingle) => {
+    const query = gql`
+      query ExampleQuery($historyId: ID!) {
+        history(id: $historyId) {
+          details
+          event_date_utc
+          links {
+            article
+            reddit
+            wikipedia
+          }
+          title
+        }
+      }
+    `;
+    const respose = await getClient().query({
+      query,
+      variables: {
+        historyId: id,
+      },
+    });
+    const { history }: Hisotry_Type = respose.data;
+
+    return history;
+  },
+
+  histories: async ({ limit, offset }: propsForPagination) => {
     const query = gql`
       query ExampleQuery($limit: Int, $offset: Int) {
         histories(limit: $limit, offset: $offset) {
@@ -68,28 +103,7 @@ export const getData_ServerSide = {
 
     return histories;
   },
-
-  histories: async ({ limit, offset }: props) => {
-    const query = gql`
-      query ExampleQuery($limit: Int, $offset: Int) {
-        histories(limit: $limit, offset: $offset) {
-          details
-          id
-        }
-      }
-    `;
-    const respose = await getClient().query({
-      query,
-      variables: {
-        limit,
-        offset,
-      },
-    });
-    const { histories }: Histories_Type = respose.data;
-
-    return histories;
-  },
-  launches: async ({ limit, offset }: props) => {
+  launches: async ({ limit, offset }: propsForPagination) => {
     const query = gql`
       query Launches($limit: Int, $offset: Int) {
         launches(limit: $limit, offset: $offset) {
