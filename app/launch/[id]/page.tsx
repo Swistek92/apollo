@@ -2,7 +2,8 @@ import { getData_ServerSide } from "@/utils/getData_ServerSide";
 import Image from "next/image";
 import cosmo from "@/public/cosmo.jpg";
 import Link from "next/link";
-import { GiBackwardTime } from "react-icons/gi";
+// import { GiBackwardTime } from "react-icons/gi";
+import { RiArrowLeftLine } from "react-icons/ri";
 
 type props = {
   params: {
@@ -128,7 +129,7 @@ export default async function Page({ params }: props) {
         </table>
         <div>
           <Link className='btn-back' href='/explore'>
-            <GiBackwardTime />
+            <RiArrowLeftLine />
           </Link>
         </div>
       </div>

@@ -12157,6 +12157,12 @@ li.explore {
   justify-content: space-around;
   align-items: center;
 }
+.footer__inactiveLink {
+  color: #999;
+}
+.footer__link {
+  padding: 20px;
+}
 
 .search {
   color: #000;
@@ -12238,10 +12244,11 @@ li.explore {
 
 .btn-back {
   position: fixed;
-  top: 100px;
+  top: 300px;
   right: 20px;
   transform: scale(3);
   z-index: 9999999999;
+  color: black;
 }
 
 .launchDetails {

@@ -3,4 +3,12 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  &__inactiveLink {
+    color: $color-grey-2;
+  }
+  &__activeLink {
+  }
+  &__link {
+    padding: 20px;
+  }
 }

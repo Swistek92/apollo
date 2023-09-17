@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GiBackwardTime } from "react-icons/gi";
+import { RiArrowLeftLine } from "react-icons/ri";
 
 type props = {
   params: {
@@ -19,8 +19,8 @@ export default async function Page({ params }: props) {
       <p>paramss {id}</p>
 
       <div>
-        <Link className='btn-back' href='/'>
-          <GiBackwardTime />
+        <Link className='btn-back' href='/explore'>
+          <RiArrowLeftLine />
         </Link>
       </div>
     </div>
