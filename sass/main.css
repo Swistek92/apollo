@@ -12014,6 +12014,10 @@ a:hover {
   cursor: pointer;
 }
 
+.container__spinner {
+  width: 100vw;
+}
+
 .drone {
   padding-top: 80px;
   position: relative;
@@ -12197,6 +12201,7 @@ li.explore {
   justify-content: center;
   background-color: #000;
   padding-top: 120px;
+  padding-bottom: 100px;
 }
 
 .launch {
@@ -12231,18 +12236,28 @@ li.explore {
   text-align: left;
 }
 
-.launchDetails__container {
+.btn-back {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  transform: scale(3);
+  z-index: 9999999999;
+}
+
+.launchDetails {
   max-height: 80vh;
   font-size: 15px;
-  margin-bottom: 200px;
 }
-.launchDetails__container__imagebox {
+.launchDetails__imagebox {
   max-width: 100vw;
   height: auto;
   width: 100vw;
   margin: auto;
 }
-.launchDetails__container__imagebox__img {
+.launchDetails__imagebox__img {
   width: 100%;
   height: 100%;
+}
+.launchDetails__data {
+  padding-bottom: 100px;
 }/*# sourceMappingURL=main.css.map */

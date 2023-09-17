@@ -1,6 +1,9 @@
 import { getData_ServerSide } from "@/utils/getData_ServerSide";
 import Image from "next/image";
 import cosmo from "@/public/cosmo.jpg";
+import Link from "next/link";
+import { GiBackwardTime } from "react-icons/gi";
+
 type props = {
   params: {
     id: string;
@@ -24,11 +27,11 @@ export default async function Page({ params }: props) {
   const { active, name, wikipedia, company, country, mass } = rocket2;
   const { kg } = mass;
   return (
-    <div className='launchDetails__container'>
-      <div className='launchDetails__container__imagebox'>
+    <div className='launchDetails'>
+      <div className='launchDetails__imagebox'>
         {flickr_images[0] ? (
           <Image
-            className='launchDetails__container__imagebox__img'
+            className='launchDetails__imagebox__img'
             src={flickr_images[0]}
             alt='img'
             width={200}
@@ -36,7 +39,7 @@ export default async function Page({ params }: props) {
           />
         ) : (
           <Image
-            className='launchDetails__container__imagebox__img'
+            className='launchDetails__imagebox__img'
             src={cosmo}
             alt='img'
             width={200}
@@ -44,7 +47,7 @@ export default async function Page({ params }: props) {
           />
         )}
       </div>
-      <div>
+      <div className='launchDetails__data'>
         <h3>rocket name {rocket_name}</h3>
         {details && <p> {details}</p>}
 
@@ -123,6 +126,11 @@ export default async function Page({ params }: props) {
             )}
           </tbody>
         </table>
+        <div>
+          <Link className='btn-back' href='/explore'>
+            <GiBackwardTime />
+          </Link>
+        </div>
       </div>
     </div>
   );

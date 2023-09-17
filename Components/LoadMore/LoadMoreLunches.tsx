@@ -10,7 +10,7 @@ import Launch, { Launch_Type } from "../Launch/Launch";
 
 const LoadMoreLunches = () => {
   const [data2, setData] = useState<Launch_Type[]>([]);
-  const [limit, setLimit] = useState(30);
+  const [limit, setLimit] = useState(6);
 
   const { ref, inView } = useInView();
 
@@ -19,11 +19,11 @@ const LoadMoreLunches = () => {
 
   const loadMoreData = async () => {
     // DELAY@@@@
-    // await delay(100);
-    const launches = await getData_ClientSide.launches({ limit, offset: 0 });
+    await delay(100);
+    const launches = await getData_ClientSide.launches({ limit, offset: 4 });
     setData(launches);
 
-    setLimit(limit + 1);
+    setLimit(limit + 2);
   };
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const LoadMoreLunches = () => {
   }, [inView]);
 
   return (
-    <div>
+    <>
       {data2 &&
         data2.map((e) => {
           return (
@@ -48,8 +48,11 @@ const LoadMoreLunches = () => {
             />
           );
         })}
-      <Spinner ref={ref} />
-    </div>
+      <br />
+      <div className='container__spinner'>
+        <Spinner className='spinner' ref={ref} />
+      </div>
+    </>
   );
 };
 
